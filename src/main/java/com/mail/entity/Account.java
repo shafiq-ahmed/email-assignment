@@ -1,7 +1,11 @@
 package com.mail.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +17,8 @@ public class Account {
 	private String accountId;
 	private String password;
 	private String ImageId;
+	@OneToMany(mappedBy = "receiver")
+	private List<Mail> mails=new ArrayList<>();
 	
 	public String getName() {
 		return name;
