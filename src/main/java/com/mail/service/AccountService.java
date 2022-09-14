@@ -8,4 +8,5 @@ public interface AccountService {
 		
 	public void addAccount(Account account);
 	public Account getAccountObject(String accountString, MultipartFile image);
+	public Account findById(String id);
 }

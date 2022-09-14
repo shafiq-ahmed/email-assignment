@@ -80,5 +80,11 @@ public class AccountServiceImpl implements AccountService {
 		imageDao.save(imageEntity);
 		return imageEntity;
 	}
+	@Override
+	public Account findById(String id) {
+		// TODO Auto-generated method stub
+		return accountDao.getReferenceById(Integer.parseInt(id));
+		
+	}
 
 }
