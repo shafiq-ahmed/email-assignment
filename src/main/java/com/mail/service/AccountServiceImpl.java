@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,6 +86,15 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return accountDao.getReferenceById(Integer.parseInt(id));
 		
+	}
+	@Override
+	public void showSentMails(int id) {
+		// TODO Auto-generated method stub
+		Account account=accountDao.getReferenceById(id);
+		
+		if(account!=null) {
+			account.getSentMails().forEach(System.out::println);
+		}
 	}
 
 }

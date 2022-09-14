@@ -24,8 +24,16 @@ public class Account {
 	@OneToOne
 	private Image image;
 	@OneToMany(mappedBy = "receiver")
-	private List<Mail> mails=new ArrayList<>();
+	private List<Mail> receivedMails=new ArrayList<>();
+	@OneToMany(mappedBy = "sender")
+	private List<Mail> sentMails=new ArrayList<>();
 	
+	public List<Mail> getSentMails() {
+		return sentMails;
+	}
+	public void setSentMails(List<Mail> sentMails) {
+		this.sentMails = sentMails;
+	}
 	public String getName() {
 		return name;
 	}
@@ -51,10 +59,10 @@ public class Account {
 		this.image = image;
 	}
 	public List<Mail> getMails() {
-		return mails;
+		return receivedMails;
 	}
 	public void setMails(List<Mail> mails) {
-		this.mails = mails;
+		this.receivedMails = mails;
 	}
 	
 

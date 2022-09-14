@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="mail_table2")
 public class Mail {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -45,7 +46,10 @@ public class Mail {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Sender= " + sender.getName() + "\nReceiver= " + receiver.getName() + "\nBody= " + mailBody ;
+	}
 	
 	
 }
