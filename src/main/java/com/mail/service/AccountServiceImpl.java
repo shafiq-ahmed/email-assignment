@@ -87,8 +87,9 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public Account findById(String id) {
 		// TODO Auto-generated method stub
+		if(accountDao.existsById(Integer.parseInt(id))) {
 		return accountDao.getReferenceById(Integer.parseInt(id));
-		
+		} else return null;
 	}
 	@Override
 	public List<String> getSentMails(int id) {
