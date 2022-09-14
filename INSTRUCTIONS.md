@@ -44,8 +44,11 @@
 ![alt text](Readme%20Attachments/Capture8.PNG)
 
 - Confirmation message shown
+
 ![alt text](Readme%20Attachments/Capture9.PNG)
+
 - Error message will be shown if either receiver or sender account does not exist
+
 ![alt text](Readme%20Attachments/Capture10.PNG)
 
 ### View sent mails
