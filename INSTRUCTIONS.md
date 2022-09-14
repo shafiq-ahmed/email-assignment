@@ -40,6 +40,7 @@
 - url is /sendMail?receiverId=5&senderId=7
 - Existing receiver and sender account id must be given in parameter
 - Mail must be given in body
+
 ![alt text](Readme%20Attachments/Capture8.PNG)
 
 - Confirmation message shown
