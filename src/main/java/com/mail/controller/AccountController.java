@@ -38,4 +38,12 @@ public class AccountController {
 		 
 		 return sentMails;
 	}
+	
+	@PostMapping("/gotMail")
+	public List<String> viewReceivedMail(@RequestParam("receiverId") String receiverId) {
+		 
+		 List<String> receivedMails=accountService.getReceivedMails(Integer.parseInt(receiverId));
+		 
+		 return receivedMails;
+	}
 }

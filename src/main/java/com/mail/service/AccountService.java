@@ -12,4 +12,5 @@ public interface AccountService {
 	public Account getAccountObject(String accountString, MultipartFile image);
 	public Account findById(String id);
 	public List<String> getSentMails(int id);
+	public List<String> getReceivedMails(int id);
 }

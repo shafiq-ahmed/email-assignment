@@ -58,10 +58,10 @@ public class Account {
 	public void setImage(Image image) {
 		this.image = image;
 	}
-	public List<Mail> getMails() {
+	public List<Mail> getReceivedMails() {
 		return receivedMails;
 	}
-	public void setMails(List<Mail> mails) {
+	public void setReceivedMails(List<Mail> mails) {
 		this.receivedMails = mails;
 	}
 	

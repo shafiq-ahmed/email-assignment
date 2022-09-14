@@ -104,5 +104,20 @@ public class AccountServiceImpl implements AccountService {
 		}
 		return sentMails;
 	}
+	@Override
+	public List<String> getReceivedMails(int id) {
+		// TODO Auto-generated method stub
+		Account account=accountDao.getReferenceById(id);
+		List<String> receivedMails=new ArrayList<>();
+		if(account!=null) {
+			List<Mail> mailList=account.getReceivedMails();
+			for(Mail mail: mailList) {
+				receivedMails.add(mail.toString());
+			}
+			
+		}
+		return receivedMails;
+	}
+	}
 
-}
+
