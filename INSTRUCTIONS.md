@@ -1,2 +1,2 @@
 ##Configuraions
-![alt text](file:///F:/Downloads/Capture1.PNG)
+![alt text](Readme%20Attachments/Capture1.PNG)
