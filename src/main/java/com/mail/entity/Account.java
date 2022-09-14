@@ -4,19 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_table")
+@Table(name="account_table2")
 public class Account {
+	
 	
 	private String name;
 	@Id
-	private String accountId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int accountId;
 	private String password;
-	private String ImageId;
+	@OneToOne
+	private Image image;
 	@OneToMany(mappedBy = "receiver")
 	private List<Mail> mails=new ArrayList<>();
 	
@@ -26,10 +32,10 @@ public class Account {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAccountId() {
+	public int getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(String accountId) {
+	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
 	public String getPassword() {
@@ -38,11 +44,17 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getImageId() {
-		return ImageId;
+	public Image getImage() {
+		return image;
 	}
-	public void setImageId(String imageId) {
-		ImageId = imageId;
+	public void setImage(Image image) {
+		this.image = image;
+	}
+	public List<Mail> getMails() {
+		return mails;
+	}
+	public void setMails(List<Mail> mails) {
+		this.mails = mails;
 	}
 	
 
