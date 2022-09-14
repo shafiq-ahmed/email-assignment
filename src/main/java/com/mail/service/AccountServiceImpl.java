@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,6 +19,7 @@ import com.mail.dao.AccountDao;
 import com.mail.dao.ImageDao;
 import com.mail.entity.Account;
 import com.mail.entity.Image;
+import com.mail.entity.Mail;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -88,13 +91,18 @@ public class AccountServiceImpl implements AccountService {
 		
 	}
 	@Override
-	public void showSentMails(int id) {
+	public List<String> getSentMails(int id) {
 		// TODO Auto-generated method stub
 		Account account=accountDao.getReferenceById(id);
-		
+		List<String> sentMails=new ArrayList<>();
 		if(account!=null) {
-			account.getSentMails().forEach(System.out::println);
+			List<Mail> mailList=account.getSentMails();
+			for(Mail mail: mailList) {
+				sentMails.add(mail.toString());
+			}
+			
 		}
+		return sentMails;
 	}
 
 }

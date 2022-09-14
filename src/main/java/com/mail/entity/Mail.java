@@ -48,7 +48,7 @@ public class Mail {
 	
 	@Override
 	public String toString() {
-		return "Sender= " + sender.getName() + "\nReceiver= " + receiver.getName() + "\nBody= " + mailBody ;
+		return "Sender= " + sender.getName() + " Receiver= " + receiver.getName() + " Body= " + mailBody ;
 	}
 	
 	
