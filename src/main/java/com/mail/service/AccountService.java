@@ -15,4 +15,5 @@ public interface AccountService {
 	public List<String> getReceivedMails(int id);
 	public String getAccountDetails(int  accountId);
 	public void updateAccount(Account account);
+	public boolean deleteAccount(int accountId, String password);
 }

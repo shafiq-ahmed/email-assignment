@@ -3,6 +3,7 @@ package com.mail.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +24,9 @@ public class Account {
 	private String password;
 	@OneToOne
 	private Image image;
-	@OneToMany(mappedBy = "receiver")
+	@OneToMany(mappedBy = "receiver",cascade = CascadeType.REMOVE)
 	private List<Mail> receivedMails=new ArrayList<>();
-	@OneToMany(mappedBy = "sender")
+	@OneToMany(mappedBy = "sender",cascade = CascadeType.REMOVE)
 	private List<Mail> sentMails=new ArrayList<>();
 	
 	public List<Mail> getSentMails() {

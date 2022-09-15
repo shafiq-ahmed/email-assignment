@@ -66,4 +66,15 @@ public class AccountController {
 		}else return "Account update failed";
 		
 	}
+	
+	@PostMapping("/delete")
+	public String deleteAccount(@RequestParam("accountId") int accountId, @RequestParam("password") String password) {
+		 
+		 if(accountService.deleteAccount(accountId, password)) {
+			 return "Account deleted";
+		 }
+		 
+		 return "Password is incorrect";
+	}
+	
 }

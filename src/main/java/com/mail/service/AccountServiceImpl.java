@@ -35,7 +35,7 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void addAccount(Account account) {
 		// TODO Auto-generated method stub
-		
+		imageDao.save(account.getImage());
 		accountDao.save(account);
 		
 		
@@ -140,6 +140,16 @@ public class AccountServiceImpl implements AccountService {
 		accountDao.save(existingAccount);
 		
 		
+	}
+	@Override
+	public boolean deleteAccount(int accountId, String password) {
+		// TODO Auto-generated method stub
+		Account account=accountDao.findById(accountId).get();
+		if(account.getPassword().equals(password)) {
+			accountDao.delete(account);
+			return true;
+		}
+		return false;
 	}
 }
 
