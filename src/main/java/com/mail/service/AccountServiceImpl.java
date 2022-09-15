@@ -88,7 +88,7 @@ public class AccountServiceImpl implements AccountService {
 	public Account findById(String id) {
 		// TODO Auto-generated method stub
 		if(accountDao.existsById(Integer.parseInt(id))) {
-		return accountDao.getReferenceById(Integer.parseInt(id));
+		return accountDao.findById(Integer.parseInt(id)).get();
 		} else return null;
 	}
 	@Override
@@ -119,6 +119,15 @@ public class AccountServiceImpl implements AccountService {
 		}
 		return receivedMails;
 	}
+	
+	public String getAccountDetails(int  accountId) {
+		Account account=accountDao.findById(accountId).get();
+		String response="";
+		response=response.concat("Id: "+account.getAccountId());
+		response=response.concat(" Name: "+account.getName());
+		response=response.concat(" Password: "+account.getPassword());
+		return response;
 	}
+}
 
 
