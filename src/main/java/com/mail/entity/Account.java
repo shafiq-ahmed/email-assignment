@@ -22,7 +22,7 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int accountId;
 	private String password;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Image image;
 	@OneToMany(mappedBy = "receiver",cascade = CascadeType.REMOVE)
 	private List<Mail> receivedMails=new ArrayList<>();

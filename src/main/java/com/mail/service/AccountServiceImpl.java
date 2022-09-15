@@ -35,7 +35,7 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void addAccount(Account account) {
 		// TODO Auto-generated method stub
-		imageDao.save(account.getImage());
+		//imageDao.save(account.getImage());
 		accountDao.save(account);
 		
 		
@@ -136,7 +136,7 @@ public class AccountServiceImpl implements AccountService {
 		existingAccount.setName(account.getName());
 		existingAccount.setPassword(account.getPassword());
 		existingAccount.setImage(account.getImage());
-		imageDao.save(account.getImage());
+		//imageDao.save(account.getImage());
 		accountDao.save(existingAccount);
 		
 		
