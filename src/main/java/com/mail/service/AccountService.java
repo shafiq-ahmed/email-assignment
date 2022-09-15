@@ -14,4 +14,5 @@ public interface AccountService {
 	public List<String> getSentMails(int id);
 	public List<String> getReceivedMails(int id);
 	public String getAccountDetails(int  accountId);
+	public void updateAccount(Account account);
 }

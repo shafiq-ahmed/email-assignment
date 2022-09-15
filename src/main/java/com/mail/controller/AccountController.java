@@ -27,9 +27,8 @@ public class AccountController {
 	@PostMapping("/addAccount")
 	public String addAccount(@RequestPart("account") String account, @RequestPart("image") MultipartFile image){
 		
-		System.out.println(image.getOriginalFilename());
+		
 		Account accountObject=accountService.getAccountObject(account, image);
-		System.out.println(accountObject.getName()+" "+accountObject.getPassword());
 		accountService.addAccount(accountObject);
 		return "Account created";
 	}
@@ -54,6 +53,17 @@ public class AccountController {
 		
 		
 		return accountService.getAccountDetails(accountId);
+		
+	}
+	@PostMapping("/update")
+	public String updateAccount(@RequestPart("account") String account, @RequestPart("image") MultipartFile image){
+		
+		
+		Account updatedAccount=accountService.getAccountObject(account, image);
+		if(updatedAccount!=null) {
+			accountService.updateAccount(updatedAccount);
+			return "Account updated";
+		}else return "Account update failed";
 		
 	}
 }

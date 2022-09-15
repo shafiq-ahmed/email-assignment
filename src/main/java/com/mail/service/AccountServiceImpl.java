@@ -35,6 +35,7 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void addAccount(Account account) {
 		// TODO Auto-generated method stub
+		
 		accountDao.save(account);
 		
 		
@@ -50,8 +51,9 @@ public class AccountServiceImpl implements AccountService {
 			account = objectMapper.readValue(accountString, Account.class);
 		} catch (IOException e) {
 			System.out.printf("Error maping account object", e.toString());
+			System.out.println();
+			return null;
 		}
-		System.out.println(account.getName()+" "+account.getPassword());
 		
 		account.setImage(storeImage(image));
 		return account;
@@ -81,7 +83,7 @@ public class AccountServiceImpl implements AccountService {
 		
 		Image imageEntity=new Image();
 		imageEntity.setFilePath(filePath);
-		imageDao.save(imageEntity);
+		
 		return imageEntity;
 	}
 	@Override
@@ -127,6 +129,17 @@ public class AccountServiceImpl implements AccountService {
 		response=response.concat(" Name: "+account.getName());
 		response=response.concat(" Password: "+account.getPassword());
 		return response;
+	}
+	@Override
+	public void updateAccount(Account account) {
+		Account existingAccount=accountDao.getReferenceById(account.getAccountId());
+		existingAccount.setName(account.getName());
+		existingAccount.setPassword(account.getPassword());
+		existingAccount.setImage(account.getImage());
+		imageDao.save(account.getImage());
+		accountDao.save(existingAccount);
+		
+		
 	}
 }
 
