@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mail.entity.Account;
+import com.mail.entity.Image;
 
 public interface AccountService {
 		
@@ -16,4 +17,5 @@ public interface AccountService {
 	public String getAccountDetails(int  accountId);
 	public void updateAccount(Account account);
 	public boolean deleteAccount(int accountId, String password);
+	public Image storeImage(MultipartFile image);
 }
